@@ -4,6 +4,7 @@
   "description": "",
   "main": "server/index.js",
   "scripts": {
+    "install2": "npm install --prefix server && npm install --prefix client",
     "server": "pm2 stop mern-tm-api &&  pm2 start ./server/app.js --name mern-tm-api   --watch",
     "client": "cd ./client && npm start&",
     "start": "concurrently \"npm run server\" \"npm run client\""
