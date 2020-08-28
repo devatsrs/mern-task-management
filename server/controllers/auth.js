@@ -59,14 +59,17 @@ exports.login = (req, res, next) => {
           .status(401)
           .json({ message: "A user with this email could not be found." });
       }
+
       loadedUser = user;
       return bcrypt.compare(_password, user.password);
     })
     .then(isEqual => {
       if (!isEqual) {
-        const error = new Error("Wrong password!");
-        error.statusCode = 401;
-        throw error;
+        // const error = new Error("Wrong password!");
+        // error.statusCode = 401;
+        // throw error;
+
+        res.status(401).json({ message: "Wrong password!" });
       }
       const token = jwt.sign(
         {
