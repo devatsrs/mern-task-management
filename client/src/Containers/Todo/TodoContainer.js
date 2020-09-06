@@ -61,7 +61,7 @@ const MessageBox = (props) => {
 };
 
 const TaskChart = ({ tasks }) => {
-  let completed = tasks.filter((task) => task.completed === true).length;
+  let completed = tasks.filter((task) => task.completed === 1).length;
   let total = tasks.length;
   let completedper = ((completed / total) * 100).toFixed(2);
   let remainingper = (100 - completedper).toFixed(2);
@@ -92,7 +92,7 @@ const TaskChart = ({ tasks }) => {
 };
 
 const TasksCompleted = ({ tasks }) => {
-  const completed = tasks.filter((task) => task.completed === true).length;
+  const completed = tasks.filter((task) => task.completed === 1).length;
   const per_task = (completed / tasks.length).toFixed(1) * 100;
   const style = {
     width: per_task + "%",
